@@ -45,6 +45,13 @@ namespace LoginUsingMiddleware.CustomMiddlewares
 
             await next(context);
         }
+    }
 
+    public static class Login
+    {
+        public static IApplicationBuilder LoginExtension(this IApplicationBuilder app)
+        {
+            return app.UseMiddleware<LoginMiddleware>();
+        }
     }
 }
